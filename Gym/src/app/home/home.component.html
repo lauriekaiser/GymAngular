@@ -1,0 +1,43 @@
+
+<body>
+    <h1>Member Sign In</h1>
+    <div cdkDropList class="members-list" ondragstart="drag($event)">
+    <div class="member" *ngFor="let member of members" cdkDrag>
+        {{member.name}}
+    </div>
+</div>
+<div class="container" ondragover="allowDrop(event)">
+    <table ondrop="drop(event)">
+        <tr>
+            <th style="width:30%">Treadmill</th>
+            <th style="width:30%">Rower</th>
+            <th style="width:30%">Weight Floor</th>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+    </table>
+</div>
+</body>
