@@ -1,38 +1,32 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild, ElementRef, OnInit } from '@angular/core';
+
+interface Member {
+  id: number;
+  name: string;
+}
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
+
 export class HomeComponent {
+ 
+name: string = '';
+members: Member[] = [];
+ 
+allowedNames = ['Laurie', 'Amy'];
+showAlert: boolean = false;
 
-members = [{
-  id: 1,
-  'name': 'Laurie'
-},
-{
-  id: 2,
-  'name': 'Amy'
-}]
-
-// drag(event: DragEvent): void {
-//   const target = event.target as HTMLElement;
-//   event.dataTransfer?.setData("text", target.id);
-// }
-
-// allowDrop(event: DragEvent): void {
-//   event.preventDefault();
-// }
-
-// drop(event: DragEvent): void {
-//   event.preventDefault();
-//   const data = event.dataTransfer?.getData("text");
-  
-//   const target = event.target as HTMLElement;
-//  const draggedElement = document.getElementById(data);
-
-//   if (target && draggedElement) {
-//   target.appendChild(draggedElement);
-// }}
+  addName() {
+   if (this.allowedNames.includes(this.name)) {
+    this.members.push({ id: this.members.length + 1, name: this.name });
+    this.name = '';
+    this.showAlert = false;
+   } else {
+    this.showAlert = true;
+   }
 }
+}
+
